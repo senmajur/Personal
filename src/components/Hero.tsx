@@ -13,13 +13,13 @@ const Hero = (): React.JSX.Element => {
       {/* Main Content */}
       <div className="text-center max-w-4xl mx-auto relative z-20">
         <div className="animate-fade-in-up">
-          <h6 className="text-3xl text-gray-400 mb-6 tracking-wider opacity-0 animate-fade-in-delayed-1">
+          <h6 className="text-xl sm:text-3xl text-gray-400 mb-6 tracking-wider opacity-0 animate-fade-in-delayed-1">
             Hi, my name is
           </h6>
         </div>
         
         <div className="animate-fade-in-up-delayed">
-          <h1 className="text-7xl md:text-9xl font-bold mb-8 opacity-0 animate-text-reveal relative">
+          <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold mb-8 opacity-0 animate-text-reveal relative">
             <span className="block animate-slide-up-1">Rian</span>
             <span className="block animate-slide-up-2">Sen</span>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-3xl -z-10 animate-glow-pulse"></div>
@@ -27,7 +27,7 @@ const Hero = (): React.JSX.Element => {
         </div>
         
         <div className="animate-fade-in-up-delayed-2">
-          <h3 className="text-3xl md:text-4xl text-gray-300 mb-10 opacity-0 animate-fade-in-delayed-2">
+          <h3 className="text-xl sm:text-3xl md:text-4xl text-gray-300 mb-10 opacity-0 animate-fade-in-delayed-2">
             Engineering applications that{' '}
             <TypewriterText />
           </h3>
@@ -35,7 +35,7 @@ const Hero = (): React.JSX.Element => {
 
         {/* Animated CTA Button */}
         <div className="mt-16 opacity-0 animate-fade-in-delayed-3">
-          <button className="group relative px-10 py-5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white text-lg font-medium hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)]">
+          <button className="group relative px-6 sm:px-10 py-3 sm:py-5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white text-base sm:text-lg font-medium hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)]">
             <span className="relative z-10">Explore My Work</span>
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
             <div className="absolute inset-0 rounded-full bg-white/5 backdrop-blur-xl"></div>

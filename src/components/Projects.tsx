@@ -145,12 +145,12 @@ const Projects = (): React.JSX.Element => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className={`text-center mb-20 transition-all duration-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
-          <h3 className="text-6xl md:text-7xl font-bold mb-6">
+          <h3 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-slate-200 via-purple-300 to-blue-200 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
               Featured Projects
             </span>
           </h3>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Innovative solutions that push technological boundaries and create 
             meaningful impact in the digital landscape
           </p>
@@ -267,7 +267,7 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
   return (
     <div className="space-y-8">
       {/* Main Card */}
-      <div className="relative p-8 lg:p-12 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 overflow-hidden">
+      <div className="relative p-4 sm:p-8 lg:p-12 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 overflow-hidden">
         
         {/* Gradient Background */}
         <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${project.gradient} opacity-40 animate-gradient-xy`}></div>
@@ -275,17 +275,17 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
         {/* Content */}
         <div className="relative z-10">
           {/* Header */}
-          <div className="flex items-start justify-between mb-8">
-            <div className="flex items-start gap-6">
-              <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center">
-                <span className="text-3xl">{project.icon}</span>
+          <div className="flex flex-col lg:flex-row items-start gap-4 lg:gap-6 mb-6 lg:mb-8">
+            <div className="flex items-start gap-4 lg:gap-6 flex-1">
+              <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-2xl lg:text-3xl">{project.icon}</span>
               </div>
-              <div>
-                <h3 className="text-4xl font-bold text-white mb-2">{project.title}</h3>
-                <h4 className="text-xl font-medium bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">
+              <div className="min-w-0 flex-1">
+                <h3 className="text-2xl lg:text-4xl font-bold text-white mb-2">{project.title}</h3>
+                <h4 className="text-lg lg:text-xl font-medium bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">
                   {project.subtitle}
                 </h4>
-                <div className="flex gap-6 text-sm text-gray-300">
+                <div className="flex gap-4 lg:gap-6 text-sm text-gray-300">
                   <div className="flex items-center gap-2">
                     <div className={`w-2 h-2 rounded-full ${
                       project.status === 'Live Production' ? 'bg-green-400' :
@@ -299,18 +299,18 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-3">
-              <button className="px-6 py-3 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 text-white font-medium hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+              <button className="px-4 sm:px-6 py-2 sm:py-3 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 text-white font-medium hover:bg-white/20 transition-all duration-300 hover:scale-105 text-sm sm:text-base">
                 Live Demo
               </button>
-              <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium hover:shadow-lg transition-all duration-300 hover:scale-105">
+              <button className="px-4 sm:px-6 py-2 sm:py-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium hover:shadow-lg transition-all duration-300 hover:scale-105 text-sm sm:text-base">
                 View Code
               </button>
             </div>
           </div>
 
           {/* Tab Navigation */}
-          <div className="flex gap-2 mb-8 p-1 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10">
+          <div className="flex gap-1 sm:gap-2 mb-6 lg:mb-8 p-1 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 overflow-x-auto">
             {[
               { id: 'overview', label: 'Overview' },
               { id: 'features', label: 'Features' },
@@ -320,7 +320,7 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                className={`px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all duration-300 whitespace-nowrap text-sm sm:text-base ${
                   activeTab === tab.id
                     ? 'bg-white/20 text-white shadow-lg'
                     : 'text-gray-300 hover:text-white hover:bg-white/10'

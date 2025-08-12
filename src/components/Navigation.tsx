@@ -62,12 +62,12 @@ const Navigation = (): React.JSX.Element => {
   ]
 
   return (
-    <nav className="fixed top-4 left-0 right-0 z-50 pointer-events-none">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 pointer-events-auto">
+    <nav className="fixed top-2 sm:top-4 left-0 right-0 z-50 pointer-events-none">
+      <div className="mx-auto max-w-6xl px-2 sm:px-4 lg:px-6 pointer-events-auto">
         <div
           className={`
             relative rounded-full backdrop-blur-2xl 
-            shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex items-center justify-between px-6 py-3
+            shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex items-center justify-between px-3 sm:px-6 py-2 sm:py-3
             transition-all duration-500 hover:shadow-[0_12px_40px_rgba(139,92,246,0.15)]
             ${scrolled ? 'bg-white/[0.08]' : 'bg-white/[0.05]'}
           `}
@@ -83,13 +83,13 @@ const Navigation = (): React.JSX.Element => {
           {/* Additional Frosted Layer */}
           <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/[0.03] to-transparent opacity-80"></div>
 
-          <div className="flex-1 flex items-center justify-center gap-8 relative z-10">
+          <div className="flex-1 flex items-center justify-center gap-2 sm:gap-8 relative z-10">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`
-                  relative px-4 py-2 rounded-full font-medium transition-all duration-300
+                  relative px-2 sm:px-4 py-1 sm:py-2 rounded-full font-medium transition-all duration-300 text-sm sm:text-base
                   ${activeSection === item.id 
                     ? 'text-white bg-white/10 shadow-lg' 
                     : 'text-gray-300 hover:text-white hover:bg-white/5'
@@ -127,7 +127,7 @@ const Navigation = (): React.JSX.Element => {
           {/* Enhanced Resume Button */}
           <a
             href="#resume"
-            className="group relative ml-6 inline-flex items-center justify-center bg-white text-black px-6 py-2 rounded-full font-semibold shadow-[inset_0_-2px_0_rgba(0,0,0,0.15)] hover:shadow-[inset_0_-2px_0_rgba(0,0,0,0.25)] transition-all duration-300 hover:scale-105 hover:bg-gray-100"
+            className="group relative ml-2 sm:ml-6 inline-flex items-center justify-center bg-white text-black px-3 sm:px-6 py-1 sm:py-2 rounded-full font-semibold shadow-[inset_0_-2px_0_rgba(0,0,0,0.15)] hover:shadow-[inset_0_-2px_0_rgba(0,0,0,0.25)] transition-all duration-300 hover:scale-105 hover:bg-gray-100 text-sm sm:text-base"
           >
             <span className="relative z-10">Resume</span>
             

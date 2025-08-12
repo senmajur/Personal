@@ -70,7 +70,10 @@ const StarBackground = (): React.JSX.Element => {
 
     const stars: Star[] = new Array(STAR_COUNT).fill(0).map(() => {
       const depth = seededRandom()
-      const baseRadius = 0.3 + depth * 1.8 + seededRandom() * 0.4
+      // Scale down star size on mobile
+      const isMobile = window.innerWidth < 768
+      const sizeFactor = isMobile ? 0.6 : 1.0
+      const baseRadius = (0.3 + depth * 1.8 + seededRandom() * 0.4) * sizeFactor
       const x = seededRandom() * (canvas.width / DPR)
       const y = seededRandom() * (canvas.height / DPR)
       const speedVariation = seededRandom() * 0.6 - 0.3

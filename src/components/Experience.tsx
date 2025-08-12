@@ -105,12 +105,12 @@ const Experience = (): React.JSX.Element => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className={`text-center mb-20 transition-all duration-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
-          <h3 className="text-6xl md:text-7xl font-bold mb-6">
+          <h3 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-slate-200 via-purple-300 to-blue-200 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
               Professional Journey
             </span>
           </h3>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             A timeline of growth, innovation, and impactful contributions across 
             diverse technology and leadership roles
           </p>
