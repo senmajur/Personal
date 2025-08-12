@@ -27,6 +27,7 @@ const Navigation = (): React.JSX.Element => {
   }
 
   // Throttled scroll handler for better performance
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleScroll = useCallback(
     throttle(() => {
       const scrollPosition = window.scrollY

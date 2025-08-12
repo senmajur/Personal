@@ -12,10 +12,10 @@ type Star = {
   baseRadius: number
 }
 
-// Typed throttle helper (preserves handler parameter types)
-function throttle<T extends (...args: any[]) => void>(fn: T, limit: number) {
+// Typed throttle helper (no explicit any)
+function throttle<TArgs extends unknown[]>(fn: (...args: TArgs) => void, limit: number): (...args: TArgs) => void {
   let inThrottle = false
-  return (...args: Parameters<T>) => {
+  return (...args: TArgs) => {
     if (!inThrottle) {
       fn(...args)
       inThrottle = true
@@ -30,6 +30,7 @@ const StarBackground = (): React.JSX.Element => {
   const animationRef = useRef<number>(0)
 
   // Throttled mouse move handler for better performance (~60fps)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleMouseMove = useCallback(
     throttle((e: MouseEvent) => {
       mouseRef.current = { x: e.clientX, y: e.clientY }
