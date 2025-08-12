@@ -70,9 +70,9 @@ const StarBackground = (): React.JSX.Element => {
 
     const stars: Star[] = new Array(STAR_COUNT).fill(0).map(() => {
       const depth = seededRandom()
-      // Scale down star size on mobile
+      // Scale down star size on mobile (reduced by 50% from previous 0.6)
       const isMobile = window.innerWidth < 768
-      const sizeFactor = isMobile ? 0.6 : 1.0
+      const sizeFactor = isMobile ? 0.3 : 1.0
       const baseRadius = (0.3 + depth * 1.8 + seededRandom() * 0.4) * sizeFactor
       const x = seededRandom() * (canvas.width / DPR)
       const y = seededRandom() * (canvas.height / DPR)
@@ -132,11 +132,17 @@ const StarBackground = (): React.JSX.Element => {
           s.x = seededRandom() * (canvas.width / DPR)
         }
         if (influence > 0.2) {
-          const glowRadius = s.radius * (1 + influence * 3)
-          const glowOpacity = influence * 0.25
+          const glowRadius = s.radius * (1 + influence * 4)
+          const glowOpacity = influence * 0.3
+          // Create radial gradient for softer glow effect
+          const gradient = ctx.createRadialGradient(s.x, s.y, s.radius * 0.2, s.x, s.y, glowRadius)
+          gradient.addColorStop(0, `rgba(200,180,255,${(glowOpacity * 0.8).toFixed(3)})`)
+          gradient.addColorStop(0.4, `rgba(160,140,255,${(glowOpacity * 0.4).toFixed(3)})`)
+          gradient.addColorStop(0.7, `rgba(120,100,255,${(glowOpacity * 0.15).toFixed(3)})`)
+          gradient.addColorStop(1, 'rgba(120,100,255,0)')
           ctx.beginPath()
           ctx.arc(s.x, s.y, glowRadius, 0, Math.PI * 2)
-          ctx.fillStyle = `rgba(200,180,255,${glowOpacity.toFixed(3)})`
+          ctx.fillStyle = gradient
           ctx.fill()
         }
         ctx.beginPath()

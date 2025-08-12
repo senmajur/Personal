@@ -57,14 +57,14 @@ const Contact = (): React.JSX.Element => {
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className={`mb-16 transition-all duration-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
-          <h3 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6">
+          <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
             Feeling{' '}
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
               star-struck
             </span>
             ? Contact me!
           </h3>
-          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
+          <p className="text-xl sm:text-xl text-gray-300 leading-relaxed">
             I&apos;m looking for internships for summer 2025!<br />
             Or just feel free to reach out to chat about technology and innovation.
           </p>
