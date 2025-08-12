@@ -13,19 +13,23 @@
     padding-left: 0.375rem;
     padding-right: 0.375rem;
   }
+  .ultra-small\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
   .ultra-small\:py-1 {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
   }
-  .ultra-small\:py-0\.5 {
-    padding-top: 0.125rem;
-    padding-bottom: 0.125rem;
+  .ultra-small\:py-1\.5 {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
   }
-  .ultra-small\:gap-1 {
-    gap: 0.25rem;
+  .ultra-small\:gap-1\.5 {
+    gap: 0.375rem;
   }
-  .ultra-small\:ml-1 {
-    margin-left: 0.25rem;
+  .ultra-small\:ml-1\.5 {
+    margin-left: 0.375rem;
   }
   .ultra-small\:text-\[10px\] {
     font-size: 10px;
@@ -45,19 +49,23 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+  .very-small\:px-2\.5 {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
   .very-small\:py-1\.5 {
     padding-top: 0.375rem;
     padding-bottom: 0.375rem;
   }
-  .very-small\:py-1 {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+  .very-small\:py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
-  .very-small\:gap-1\.5 {
-    gap: 0.375rem;
+  .very-small\:gap-2 {
+    gap: 0.5rem;
   }
-  .very-small\:ml-1\.5 {
-    margin-left: 0.375rem;
+  .very-small\:ml-2 {
+    margin-left: 0.5rem;
   }
   .very-small\:text-\[11px\] {
     font-size: 11px;

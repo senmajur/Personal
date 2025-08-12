@@ -67,9 +67,9 @@ const Navigation = (): React.JSX.Element => {
         <div
           className={`
             relative rounded-full backdrop-blur-2xl 
-            shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex items-center justify-between px-2 sm:px-6 py-1.5 sm:py-3
+            shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex items-center justify-between px-2.5 sm:px-7 py-2 sm:py-4
             transition-all duration-500 hover:shadow-[0_12px_40px_rgba(139,92,246,0.15)]
-            ultra-small:px-1.5 ultra-small:py-1 very-small:px-2 very-small:py-1.5
+            ultra-small:px-2 ultra-small:py-1.5 very-small:px-2.5 very-small:py-2
             ${scrolled ? 'bg-white/[0.08]' : 'bg-white/[0.05]'}
           `}
         >
@@ -84,14 +84,14 @@ const Navigation = (): React.JSX.Element => {
           {/* Additional Frosted Layer */}
           <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/[0.03] to-transparent opacity-80"></div>
 
-          <div className="flex-1 flex items-center justify-center gap-1.5 sm:gap-8 relative z-10 ultra-small:gap-1 very-small:gap-1.5">
+          <div className="flex-1 flex items-center justify-center gap-2 sm:gap-9 relative z-10 ultra-small:gap-1.5 very-small:gap-2">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`
-                  relative px-1.5 sm:px-4 py-1 sm:py-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-base
-                  ultra-small:px-1 ultra-small:py-0.5 ultra-small:text-[10px] very-small:px-1.5 very-small:py-1 very-small:text-[11px]
+                  relative px-2 sm:px-5 py-1.5 sm:py-2.5 rounded-full font-medium transition-all duration-300 text-xs sm:text-base
+                  ultra-small:px-1.5 ultra-small:py-1 ultra-small:text-[10px] very-small:px-2 very-small:py-1.5 very-small:text-[11px]
                   ${activeSection === item.id 
                     ? 'text-white bg-white/10 shadow-lg' 
                     : 'text-gray-300 hover:text-white hover:bg-white/5'
@@ -129,7 +129,7 @@ const Navigation = (): React.JSX.Element => {
           {/* Enhanced Resume Button */}
           <a
             href="#resume"
-            className="group relative ml-1.5 sm:ml-6 inline-flex items-center justify-center bg-white text-black px-2 sm:px-6 py-1 sm:py-2 rounded-full font-semibold shadow-[inset_0_-2px_0_rgba(0,0,0,0.15)] hover:shadow-[inset_0_-2px_0_rgba(0,0,0,0.25)] transition-all duration-300 hover:scale-105 hover:bg-gray-100 text-xs sm:text-base ultra-small:ml-1 ultra-small:px-1.5 ultra-small:py-0.5 ultra-small:text-[10px] very-small:ml-1.5 very-small:px-2 very-small:py-1 very-small:text-[11px]"
+            className="group relative ml-2 sm:ml-7 inline-flex items-center justify-center bg-white text-black px-2.5 sm:px-7 py-1.5 sm:py-2.5 rounded-full font-semibold shadow-[inset_0_-2px_0_rgba(0,0,0,0.15)] hover:shadow-[inset_0_-2px_0_rgba(0,0,0,0.25)] transition-all duration-300 hover:scale-105 hover:bg-gray-100 text-xs sm:text-base ultra-small:ml-1.5 ultra-small:px-2 ultra-small:py-1 ultra-small:text-[10px] very-small:ml-2 very-small:px-2.5 very-small:py-1.5 very-small:text-[11px]"
           >
             <span className="relative z-10">Resume</span>
             
