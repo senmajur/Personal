@@ -25,8 +25,8 @@ const Projects = (): React.JSX.Element => {
       ],
       metrics: {
         users: '50K+',
-        videos: '100K+',
-        processing: '95%'
+        items: '100K+',
+        success: '95%'
       },
       status: 'Live Production',
       category: 'AI & Automation',
@@ -52,8 +52,8 @@ const Projects = (): React.JSX.Element => {
       ],
       metrics: {
         users: '10K+',
-        algorithms: '15+',
-        accuracy: '98%'
+        items: '15+',
+        success: '98%'
       },
       status: 'Open Source',
       category: 'Education & Visualization',
@@ -79,8 +79,8 @@ const Projects = (): React.JSX.Element => {
       ],
       metrics: {
         users: '25K+',
-        cards: '1M+',
-        retention: '89%'
+        items: '1M+',
+        success: '89%'
       },
       status: 'Beta Testing',
       category: 'EdTech & Productivity',
@@ -105,9 +105,9 @@ const Projects = (): React.JSX.Element => {
         'Third-party integrations with popular tools'
       ],
       metrics: {
-        teams: '500+',
-        uptime: '99.9%',
-        satisfaction: '94%'
+        users: '500+',
+        items: '99.9%',
+        success: '94%'
       },
       status: 'In Development',
       category: 'Collaboration & Communication',
