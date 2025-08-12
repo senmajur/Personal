@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 
-const Projects = (): JSX.Element => {
+const Projects = (): React.JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [selectedProject, setSelectedProject] = useState(0)

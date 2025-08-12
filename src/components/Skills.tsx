@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 
-const Skills = (): JSX.Element => {
+const Skills = (): React.JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [activeCategory, setActiveCategory] = useState('languages')

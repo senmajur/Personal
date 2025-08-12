@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 
-const Experience = (): JSX.Element => {
+const Experience = (): React.JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [activeExperience, setActiveExperience] = useState(0)
