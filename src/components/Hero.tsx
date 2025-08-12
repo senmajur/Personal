@@ -35,10 +35,19 @@ const Hero = (): React.JSX.Element => {
 
         {/* Animated CTA Button */}
         <div className="mt-16 opacity-0 animate-fade-in-delayed-3">
-          <button className="group relative px-8 sm:px-10 py-4 sm:py-5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white text-lg sm:text-lg font-medium hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)]">
+          <button className="group relative px-8 sm:px-10 py-4 sm:py-5 rounded-full backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] text-white text-lg sm:text-lg font-medium transition-all duration-500 hover:scale-105 hover:shadow-[0_12px_40px_rgba(139,92,246,0.15)] bg-white/[0.05] hover:bg-white/[0.08]">
             <span className="relative z-10">Explore My Work</span>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
-            <div className="absolute inset-0 rounded-full bg-white/5 backdrop-blur-xl"></div>
+            
+            {/* Enhanced Frosted Glass Background */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/[0.02] via-purple-500/[0.01] via-pink-500/[0.01] to-cyan-500/[0.02] animate-gradient-shift opacity-60 hover:opacity-100 transition-opacity duration-500"></div>
+            
+            {/* Subtle Frosted Shimmer */}
+            <div className="absolute inset-0 rounded-full overflow-hidden">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/[0.08] to-transparent opacity-0 hover:opacity-100 transition-opacity duration-700 animate-border-flow"></div>
+            </div>
+
+            {/* Additional Frosted Layer */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/[0.03] to-transparent opacity-80"></div>
           </button>
         </div>
       </div>
