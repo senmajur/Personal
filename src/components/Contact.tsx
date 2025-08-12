@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-const Contact = (): JSX.Element => {
+const Contact = (): React.JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
@@ -65,7 +65,7 @@ const Contact = (): JSX.Element => {
             ? Contact me!
           </h3>
           <p className="text-xl text-gray-300 leading-relaxed">
-            I'm looking for internships for summer 2025!<br />
+            I&apos;m looking for internships for summer 2025!<br />
             Or just feel free to reach out to chat about technology and innovation.
           </p>
         </div>
@@ -92,7 +92,7 @@ const Contact = (): JSX.Element => {
             
             {/* Content */}
             <div className="relative z-10">
-              <h4 className="text-2xl font-bold text-white mb-4">Let's Build Something Amazing Together</h4>
+              <h4 className="text-2xl font-bold text-white mb-4">Let&apos;s Build Something Amazing Together</h4>
               <p className="text-gray-300 mb-6">
                 Ready to turn innovative ideas into reality? I bring passion, creativity, and cutting-edge technical skills to every project.
               </p>

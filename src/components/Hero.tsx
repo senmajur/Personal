@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Hero = (): JSX.Element => {
+const Hero = (): React.JSX.Element => {
   return (
     <section 
       className="relative z-10 min-h-screen flex items-center justify-center px-6 overflow-hidden"
@@ -90,8 +90,6 @@ const TypewriterText = () => {
 
     let timeout: NodeJS.Timeout
     const currentPhrase = PHRASES[currentPhraseIndex]
-
-    console.log('Typewriter state:', { currentText, isDeleting, currentPhraseIndex, currentPhrase })
 
     if (isDeleting) {
       // Deleting characters

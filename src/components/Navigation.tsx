@@ -2,19 +2,19 @@
 
 import React, { useEffect, useState, useCallback } from 'react'
 
-// Throttle function for better performance
-const throttle = (func: Function, limit: number) => {
-  let inThrottle: boolean
-  return function(this: any, ...args: any[]) {
+// Typed throttle helper
+const throttle = <T extends (...args: unknown[]) => void>(fn: T, limit: number): ((...args: Parameters<T>) => void) => {
+  let inThrottle = false
+  return (...args: Parameters<T>) => {
     if (!inThrottle) {
-      func.apply(this, args)
+      fn(...args)
       inThrottle = true
-      setTimeout(() => inThrottle = false, limit)
+      setTimeout(() => { inThrottle = false }, limit)
     }
   }
 }
 
-const Navigation = (): JSX.Element => {
+const Navigation = (): React.JSX.Element => {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('')
 
