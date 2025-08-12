@@ -56,7 +56,7 @@ const Contact = (): JSX.Element => {
     >
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        <div className={`mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
+        <div className={`mb-16 transition-all duration-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
           <h3 className="text-5xl md:text-6xl font-bold mb-6">
             Feeling{' '}
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
@@ -71,7 +71,7 @@ const Contact = (): JSX.Element => {
         </div>
 
         {/* Social Links with Liquid Glass */}
-        <div className={`flex justify-center gap-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`flex justify-center gap-8 transition-all duration-600 delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           {socialLinks.map((link, index) => (
             <SocialLink
               key={link.name}
@@ -84,7 +84,7 @@ const Contact = (): JSX.Element => {
         </div>
 
         {/* Liquid Glass CTA Card */}
-        <div className={`mt-16 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`mt-16 transition-all duration-600 delay-250 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="relative p-8 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 hover:border-white/20 transition-all duration-500 hover:bg-white/8 group max-w-2xl mx-auto">
             
             {/* Animated Gradient Background */}

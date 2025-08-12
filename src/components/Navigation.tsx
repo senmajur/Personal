@@ -1,6 +1,18 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
+
+// Throttle function for better performance
+const throttle = (func: Function, limit: number) => {
+  let inThrottle: boolean
+  return function(this: any, ...args: any[]) {
+    if (!inThrottle) {
+      func.apply(this, args)
+      inThrottle = true
+      setTimeout(() => inThrottle = false, limit)
+    }
+  }
+}
 
 const Navigation = (): JSX.Element => {
   const [scrolled, setScrolled] = useState(false)
@@ -14,8 +26,9 @@ const Navigation = (): JSX.Element => {
     }
   }
 
-  useEffect(() => {
-    const handleScroll = () => {
+  // Throttled scroll handler for better performance
+  const handleScroll = useCallback(
+    throttle(() => {
       const scrollPosition = window.scrollY
       setScrolled(scrollPosition > 50)
 
@@ -31,11 +44,14 @@ const Navigation = (): JSX.Element => {
       })
       
       if (current) setActiveSection(current)
-    }
+    }, 50), // Throttle to 20fps for scroll events
+    []
+  )
 
-    window.addEventListener('scroll', handleScroll)
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [handleScroll])
 
   const navItems = [
     { id: 'skills', label: 'Skills' },
@@ -114,8 +130,8 @@ const Navigation = (): JSX.Element => {
           >
             <span className="relative z-10">Resume</span>
             
-            {/* Animated shine effect */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-border-flow"></div>
+            {/* Star-struck gradient glow effect */}
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 opacity-0 group-hover:opacity-75 blur-sm transition-opacity duration-300 animate-gradient-shift bg-[length:200%_200%]"></div>
             
             {/* Magnetic hover effect */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 scale-0 group-hover:scale-100 transition-transform duration-300"></div>

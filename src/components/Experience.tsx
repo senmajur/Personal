@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const Experience = (): JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null)
@@ -104,9 +104,9 @@ const Experience = (): JSX.Element => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
+        <div className={`text-center mb-20 transition-all duration-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
           <h3 className="text-6xl md:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-slate-200 via-purple-300 to-blue-200 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
               Professional Journey
             </span>
           </h3>
@@ -118,7 +118,7 @@ const Experience = (): JSX.Element => {
 
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Timeline Navigation */}
-          <div className={`lg:w-80 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
+          <div className={`lg:w-80 transition-all duration-600 delay-150 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
             <div className="sticky top-32">
               <div className="relative">
                 {/* Timeline Line */}
@@ -138,7 +138,7 @@ const Experience = (): JSX.Element => {
           </div>
 
           {/* Experience Details */}
-          <div className={`flex-1 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
+          <div className={`flex-1 transition-all duration-600 delay-250 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
             <ExperienceDetails experience={experiences[activeExperience]} />
           </div>
         </div>

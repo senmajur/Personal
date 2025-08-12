@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const Skills = (): JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null)
@@ -69,9 +69,9 @@ const Skills = (): JSX.Element => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
+        <div className={`text-center mb-20 transition-all duration-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
           <h3 className="text-6xl md:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-slate-200 via-purple-300 to-blue-200 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
               Technical Arsenal
             </span>
           </h3>
@@ -82,7 +82,7 @@ const Skills = (): JSX.Element => {
         </div>
 
         {/* Category Navigation */}
-        <div className={`flex justify-center mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`flex justify-center mb-16 transition-all duration-600 delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="flex rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 p-2">
             {Object.entries(skillCategories).map(([key, category]) => (
               <button
@@ -107,7 +107,7 @@ const Skills = (): JSX.Element => {
         </div>
 
         {/* Skills Display */}
-        <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`transition-all duration-600 delay-250 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <SkillsCategory 
             category={skillCategories[activeCategory as keyof typeof skillCategories]} 
             isActive={isVisible}

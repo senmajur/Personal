@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useCallback } from 'react'
 
 type Star = {
   x: number
@@ -14,30 +14,30 @@ type Star = {
 
 const clamp = (v: number, min: number, max: number) => Math.max(min, Math.min(max, v))
 
+// Throttle function for better performance
+const throttle = (func: Function, limit: number) => {
+  let inThrottle: boolean
+  return function(this: any, ...args: any[]) {
+    if (!inThrottle) {
+      func.apply(this, args)
+      inThrottle = true
+      setTimeout(() => inThrottle = false, limit)
+    }
+  }
+}
+
 const StarBackground = (): JSX.Element => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
-
-  // Separate effect for mouse position tracking to avoid re-initializing stars
   const mouseRef = useRef({ x: 0, y: 0 })
-  
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY }
-    }
+  const animationRef = useRef<number>(0)
 
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+  // Throttled mouse move handler for better performance
+  const handleMouseMove = useCallback(
+    throttle((e: MouseEvent) => {
+      mouseRef.current = { x: e.clientX, y: e.clientY }
+    }, 16), // ~60fps throttling
+    []
+  )
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -45,6 +45,9 @@ const StarBackground = (): JSX.Element => {
 
     const ctx = canvas.getContext('2d')
     if (!ctx) return
+
+    // Add mouse event listener
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
 
     const DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1))
 
@@ -58,44 +61,48 @@ const StarBackground = (): JSX.Element => {
     }
 
     resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
+    window.addEventListener('resize', resizeCanvas, { passive: true })
 
-    // Build a multi-depth star field
-    const STAR_COUNT = 220
+    // Reduce star count for better performance
+    const STAR_COUNT = 150 // Reduced from 220
+    
+    // Create a seeded random function for consistent results across renders
+    let seed = 12345 // Fixed seed for consistency
+    const seededRandom = () => {
+      seed = (seed * 9301 + 49297) % 233280
+      return seed / 233280
+    }
+    
     const stars: Star[] = new Array(STAR_COUNT).fill(0).map((_, i) => {
-      const depth = (i * 0.618) % 1 // Use golden ratio for distribution to avoid hydration issues
-      const baseRadius = 0.4 + depth * 1.6
+      // Use seeded random for truly organic placement while maintaining SSR consistency
+      const depth = seededRandom()
+      const baseRadius = 0.3 + depth * 1.8 + seededRandom() * 0.4 // Add more radius variation
+      
+      // Completely random positioning across the entire canvas
+      const x = seededRandom() * (canvas.width / DPR)
+      const y = seededRandom() * (canvas.height / DPR)
+      
+      // Vary speeds more naturally
+      const speedVariation = seededRandom() * 0.6 - 0.3 // -0.3 to +0.3
+      const speedY = 0.2 + depth * 1.2 + speedVariation
+      
+      // Random twinkle phases
+      const twinklePhase = seededRandom() * Math.PI * 2
+      
       return {
-        x: (i * 47.3) % (canvas.width / DPR),
-        y: (i * 31.7) % (canvas.height / DPR),
+        x,
+        y,
         radius: baseRadius,
         baseRadius: baseRadius,
         depth,
-        speedY: 0.1 + depth * 0.9,
-        twinklePhase: (i * 0.123) % (Math.PI * 2),
+        speedY: Math.max(0.05, speedY), // Ensure minimum speed
+        twinklePhase,
       }
     })
 
-    // Scroll reactive velocity
-    let lastScrollY = window.scrollY
-    let scrollVelocity = 0
-    let lastTs = performance.now()
-
-    const onScroll = () => {
-      const now = performance.now()
-      const dy = window.scrollY - lastScrollY
-      const dt = Math.max(16, now - lastTs)
-      // pixels per ms, smoothed
-      const v = dy / dt
-      scrollVelocity = scrollVelocity * 0.9 + v * 0.6
-      lastScrollY = window.scrollY
-      lastTs = now
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true })
-
     let rafId = 0
     let t = 0
+    let lastFrameTime = performance.now()
 
     const drawGradientBackground = () => {
       // Darker black -> deep purple vertical gradient
@@ -108,12 +115,12 @@ const StarBackground = (): JSX.Element => {
       ctx.fillRect(0, 0, width / DPR, height / DPR)
     }
 
-    const animate = () => {
-      t += 0.016
+    const animate = (currentTime: number) => {
+      const deltaTime = Math.min(currentTime - lastFrameTime, 32) // Cap at ~30fps minimum
+      lastFrameTime = currentTime
+      
+      t += deltaTime * 0.001 // Convert to seconds for consistent timing
       drawGradientBackground()
-
-      // small parallax based on scroll velocity
-      const velocityBoost = clamp(scrollVelocity, -1.5, 1.5)
 
       for (let i = 0; i < stars.length; i++) {
         const s = stars[i]
@@ -138,17 +145,17 @@ const StarBackground = (): JSX.Element => {
         // Update star radius based on cursor influence
         s.radius = s.baseRadius * sizeMultiplier
 
-        // Move star downward; accelerate slightly with scroll
-        s.y += s.speedY + velocityBoost * (0.6 + s.depth)
+        // Move star downward at constant speed using deltaTime
+        s.y += s.speedY * (deltaTime / 16) // Normalize to 60fps equivalent
 
-        // Wrap
+        // Wrap with random repositioning for natural flow
         if (s.y - s.radius > canvas.height / DPR) {
-          s.y = -2 - s.radius
-          s.x = (i * 47.3) % (canvas.width / DPR)
+          s.y = -2 - s.radius - seededRandom() * 50 // Random entry height
+          s.x = seededRandom() * (canvas.width / DPR) // Random x position
         }
         if (s.y + s.radius < -4) {
-          s.y = canvas.height / DPR + 2 + s.radius
-          s.x = (i * 47.3) % (canvas.width / DPR)
+          s.y = canvas.height / DPR + 2 + s.radius + seededRandom() * 50
+          s.x = seededRandom() * (canvas.width / DPR) // Random x position
         }
 
         // Draw enhanced glow when cursor is close
@@ -171,19 +178,20 @@ const StarBackground = (): JSX.Element => {
         ctx.shadowBlur = 0
       }
 
-      // decay velocity gradually
-      scrollVelocity *= 0.92
-      rafId = requestAnimationFrame(animate)
+      animationRef.current = requestAnimationFrame(animate)
     }
 
-    animate()
+    // Start the animation with initial timestamp
+    animationRef.current = requestAnimationFrame(animate)
 
     return () => {
       window.removeEventListener('resize', resizeCanvas)
-      window.removeEventListener('scroll', onScroll)
-      cancelAnimationFrame(rafId)
+      window.removeEventListener('mousemove', handleMouseMove)
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
     }
-  }, [])
+  }, [handleMouseMove])
 
   return <canvas ref={canvasRef} className="fixed inset-0 w-full h-full pointer-events-none z-0" />
 }
