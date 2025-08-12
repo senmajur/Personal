@@ -128,7 +128,9 @@ const Navigation = (): React.JSX.Element => {
 
           {/* Enhanced Resume Button */}
           <a
-            href="#resume"
+            href="/Rian_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative ml-2 sm:ml-7 inline-flex items-center justify-center bg-white text-black px-2.5 sm:px-7 py-1.5 sm:py-2.5 rounded-full font-semibold shadow-[inset_0_-2px_0_rgba(0,0,0,0.15)] hover:shadow-[inset_0_-2px_0_rgba(0,0,0,0.25)] transition-all duration-300 hover:scale-105 hover:bg-gray-100 text-xs sm:text-base ultra-small:ml-1.5 ultra-small:px-2 ultra-small:py-1 ultra-small:text-[10px] very-small:ml-2 very-small:px-2.5 very-small:py-1.5 very-small:text-[11px]"
           >
             <span className="relative z-10">Resume</span>
