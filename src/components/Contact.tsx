@@ -8,25 +8,25 @@ const Contact = (): React.JSX.Element => {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
 
   const socialLinks = [
-    { 
-      name: 'LinkedIn', 
-      icon: '💼', 
-      url: '#',
-      gradient: 'from-blue-500 to-blue-600',
+    {
+      name: 'LinkedIn',
+      icon: '/linkedin.svg',
+      url: 'https://www.linkedin.com/in/rian-sen/',
+      gradient: 'from-purple-400 via-pink-400 to-cyan-200',
       description: 'Connect professionally'
     },
-    { 
-      name: 'GitHub', 
-      icon: '💻', 
-      url: '#',
-      gradient: 'from-gray-700 to-gray-900',
+    {
+      name: 'GitHub',
+      icon: '/github.svg',
+      url: 'https://github.com/Rian-Sen',
+      gradient: 'from-purple-400 via-pink-400 to-cyan-200',
       description: 'View my code'
     },
-    { 
-      name: 'Email', 
-      icon: '📧', 
-      url: '#',
-      gradient: 'from-red-500 to-pink-500',
+    {
+      name: 'Gmail',
+      icon: '/gmail.svg',
+      url: 'mailto:rian.senmajumder@gmail.com',
+      gradient: 'from-purple-400 via-pink-400 to-cyan-200',
       description: 'Send a message'
     },
   ]
@@ -159,7 +159,7 @@ const SocialLink = ({ link, index, isHovered, onHover }: SocialLinkProps) => {
       <a
         ref={linkRef}
         href={link.url}
-        className="group relative block w-20 h-20 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 hover:border-white/20 transition-all duration-500 hover:bg-white/10 overflow-hidden"
+        className="group relative block w-28 h-28 rounded-2xl overflow-visible flex items-center justify-center transition-all duration-500"
         aria-label={link.name}
         onMouseEnter={() => onHover(link.name)}
         onMouseLeave={() => {
@@ -170,51 +170,15 @@ const SocialLink = ({ link, index, isHovered, onHover }: SocialLinkProps) => {
         }}
         style={{ animationDelay: `${index * 100}ms` }}
       >
-        {/* Gradient Background */}
-        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${link.gradient} opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
-        
-        {/* Magnetic Cursor Effect */}
-        {isHovered && (
-          <div 
-            className="absolute w-16 h-16 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-xl transition-all duration-300 pointer-events-none"
-            style={{
-              left: mousePosition.x - 32,
-              top: mousePosition.y - 32,
-            }}
-          />
-        )}
-
-        {/* Icon */}
-        <div className="relative z-10 w-full h-full flex items-center justify-center">
-          <span className="text-2xl transition-transform duration-300 group-hover:scale-110">
-            {link.icon}
-          </span>
-        </div>
-
-        {/* Floating Particles */}
-        {isHovered && (
-          <div className="absolute inset-0 pointer-events-none">
-            {[...Array(4)].map((_, i) => {
-              const left = 20 + (i * 15) % 60
-              const top = 20 + (i * 20) % 60
-              return (
-                <div
-                  key={i}
-                  className="absolute w-1 h-1 bg-white/60 rounded-full animate-particle-float"
-                  style={{
-                    left: `${left}%`,
-                    top: `${top}%`,
-                    animationDelay: `${i * 100}ms`,
-                    animationDuration: '2s'
-                  }}
-                />
-              )
-            })}
-          </div>
-        )}
-
-        {/* Liquid Glass Reflection */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-transparent via-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        {/* Subtle SVG-hugging glow */}
+        <div
+          className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 opacity-0 group-hover:opacity-100 group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-pink-400 group-hover:to-cyan-200 group-hover:animate-gradient-shift group-hover:bg-[length:200%_200%] group-hover:blur-[1.7rem] transition-all duration-300 ${link.name === 'LinkedIn' ? 'w-17 h-17' : 'w-20 h-20'}`}
+          style={{WebkitMask: `url(${link.icon}) no-repeat center/contain`, mask: `url(${link.icon}) no-repeat center/contain`, WebkitMaskSize: 'contain', maskSize: 'contain'}}
+        ></div>
+        {/* SVG Icon Masked Gradient */}
+        <div className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-200 animate-gradient-shift bg-[length:200%_200%] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${link.name === 'LinkedIn' ? 'w-17 h-17' : 'w-20 h-20'}`} style={{WebkitMask: `url(${link.icon}) no-repeat center/contain`, mask: `url(${link.icon}) no-repeat center/contain`, WebkitMaskSize: 'contain', maskSize: 'contain'}}></div>
+        {/* White SVG for default state */}
+        <img src={link.icon} alt={link.name} className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-300 group-hover:opacity-0 ${link.name === 'LinkedIn' ? 'w-17 h-17' : 'w-20 h-20'}`} style={{filter: 'brightness(0) saturate(100%) invert(100%)'}} />
       </a>
 
       {/* Tooltip */}

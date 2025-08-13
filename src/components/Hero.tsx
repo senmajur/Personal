@@ -52,7 +52,7 @@ const Hero = (): React.JSX.Element => {
           </button>
           <div className="flex items-center justify-center gap-4">
             {/* GitHub */}
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="group relative w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-105">
+            <a href="https://github.com/Rian-Sen" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="group relative w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-105">
               <div className="w-6 h-6 relative flex items-center justify-center">
                 <img src="/github.svg" alt="GitHub" className="w-6 h-6 absolute inset-0 z-10 transition-all duration-300 group-hover:opacity-0" style={{filter: 'brightness(0) saturate(100%) invert(100%)'}} />
                 {/* Neon Glow Layer */}
@@ -61,7 +61,7 @@ const Hero = (): React.JSX.Element => {
               </div>
             </a>
             {/* LinkedIn */}
-            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="group relative w-8.5 h-8.5 flex items-center justify-center transition-all duration-300 hover:scale-105">
+            <a href="https://www.linkedin.com/in/rian-sen/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="group relative w-8.5 h-8.5 flex items-center justify-center transition-all duration-300 hover:scale-105">
               <div className="w-5 h-5 relative flex items-center justify-center">
                 <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5 absolute inset-0 z-10 transition-all duration-300 group-hover:opacity-0" style={{filter: 'brightness(0) saturate(100%) invert(100%)'}} />
                 {/* Neon Glow Layer */}
@@ -70,7 +70,7 @@ const Hero = (): React.JSX.Element => {
               </div>
             </a>
             {/* Gmail */}
-            <a href="mailto:your@email.com" aria-label="Gmail" className="group relative w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-105">
+            <a href="mailto:rian.senmajumder@gmail.com" aria-label="Gmail" className="group relative w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-105">
               <div className="w-6 h-6 relative flex items-center justify-center">
                 <img src="/gmail.svg" alt="Gmail" className="w-6 h-6 absolute inset-0 z-10 transition-all duration-300 group-hover:opacity-0" style={{filter: 'brightness(0) saturate(100%) invert(100%)'}} />
                 {/* Neon Glow Layer */}
