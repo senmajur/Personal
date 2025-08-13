@@ -34,21 +34,51 @@ const Hero = (): React.JSX.Element => {
         </div>
 
         {/* Animated CTA Button */}
-        <div className="mt-16 opacity-0 animate-fade-in-delayed-3">
+        <div className="mt-16 opacity-0 animate-fade-in-delayed-3 flex flex-col items-center gap-6">
           <button className="group relative px-8 sm:px-10 py-4 sm:py-5 rounded-full backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] text-white text-lg sm:text-lg font-medium transition-all duration-500 hover:scale-105 hover:shadow-[0_12px_40px_rgba(139,92,246,0.15)] bg-white/[0.05] hover:bg-white/[0.08]">
-            <span className="relative z-10">Explore My Work</span>
-            
+            <span className="relative z-10 transition-all duration-300">
+              <span className="text-white group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-pink-400 group-hover:to-cyan-200 group-hover:bg-clip-text group-hover:text-transparent group-hover:animate-gradient-shift group-hover:bg-[length:200%_200%]">Explore My Work</span>
+              {/* Text-specific glow */}
+              <span className="absolute inset-0 text-white opacity-0 group-hover:opacity-75 group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-pink-400 group-hover:to-cyan-200 group-hover:bg-clip-text group-hover:text-transparent group-hover:animate-gradient-shift group-hover:bg-[length:200%_200%] blur-sm transition-all duration-300">Explore My Work</span>
+            </span>
             {/* Enhanced Frosted Glass Background */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/[0.02] via-purple-500/[0.01] via-pink-500/[0.01] to-cyan-500/[0.02] animate-gradient-shift opacity-60 hover:opacity-100 transition-opacity duration-500"></div>
-            
             {/* Subtle Frosted Shimmer */}
             <div className="absolute inset-0 rounded-full overflow-hidden">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/[0.08] to-transparent opacity-0 hover:opacity-100 transition-opacity duration-700 animate-border-flow"></div>
             </div>
-
             {/* Additional Frosted Layer */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/[0.03] to-transparent opacity-80"></div>
           </button>
+          <div className="flex items-center justify-center gap-4">
+            {/* GitHub */}
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="group relative w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-105">
+              <div className="w-6 h-6 relative flex items-center justify-center">
+                <img src="/github.svg" alt="GitHub" className="w-6 h-6 absolute inset-0 z-10 transition-all duration-300 group-hover:opacity-0" style={{filter: 'brightness(0) saturate(100%) invert(100%)'}} />
+                {/* Neon Glow Layer */}
+                <span className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-80 group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-pink-400 group-hover:to-cyan-200 group-hover:animate-gradient-shift group-hover:bg-[length:200%_200%] blur-md group-hover:[filter:drop-shadow(0_0_8px_rgba(139,92,246,0.8)) drop-shadow(0_0_16px_rgba(236,72,153,0.7)) drop-shadow(0_0_24px_rgba(34,211,238,0.9))] transition-all duration-300"></span>
+                <div className="w-6 h-6 absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-200 animate-gradient-shift bg-[length:200%_200%] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{WebkitMask: 'url(/github.svg) no-repeat center/contain', mask: 'url(/github.svg) no-repeat center/contain', WebkitMaskSize: 'contain', maskSize: 'contain'}}></div>
+              </div>
+            </a>
+            {/* LinkedIn */}
+            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="group relative w-8.5 h-8.5 flex items-center justify-center transition-all duration-300 hover:scale-105">
+              <div className="w-5 h-5 relative flex items-center justify-center">
+                <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5 absolute inset-0 z-10 transition-all duration-300 group-hover:opacity-0" style={{filter: 'brightness(0) saturate(100%) invert(100%)'}} />
+                {/* Neon Glow Layer */}
+                <span className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-80 group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-pink-400 group-hover:to-cyan-200 group-hover:animate-gradient-shift group-hover:bg-[length:200%_200%] blur-md group-hover:[filter:drop-shadow(0_0_8px_rgba(139,92,246,0.8)) drop-shadow(0_0_16px_rgba(236,72,153,0.7)) drop-shadow(0_0_24px_rgba(34,211,238,0.9))] transition-all duration-300"></span>
+                <div className="w-5 h-5 absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-200 animate-gradient-shift bg-[length:200%_200%] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{WebkitMask: 'url(/linkedin.svg) no-repeat center/contain', mask: 'url(/linkedin.svg) no-repeat center/contain', WebkitMaskSize: 'contain', maskSize: 'contain'}}></div>
+              </div>
+            </a>
+            {/* Gmail */}
+            <a href="mailto:your@email.com" aria-label="Gmail" className="group relative w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-105">
+              <div className="w-6 h-6 relative flex items-center justify-center">
+                <img src="/gmail.svg" alt="Gmail" className="w-6 h-6 absolute inset-0 z-10 transition-all duration-300 group-hover:opacity-0" style={{filter: 'brightness(0) saturate(100%) invert(100%)'}} />
+                {/* Neon Glow Layer */}
+                <span className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-80 group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-pink-400 group-hover:to-cyan-200 group-hover:animate-gradient-shift group-hover:bg-[length:200%_200%] blur-md group-hover:[filter:drop-shadow(0_0_8px_rgba(139,92,246,0.8)) drop-shadow(0_0_16px_rgba(236,72,153,0.7)) drop-shadow(0_0_24px_rgba(34,211,238,0.9))] transition-all duration-300"></span>
+                <div className="w-6 h-6 absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-200 animate-gradient-shift bg-[length:200%_200%] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{WebkitMask: 'url(/gmail.svg) no-repeat center/contain', mask: 'url(/gmail.svg) no-repeat center/contain', WebkitMaskSize: 'contain', maskSize: 'contain'}}></div>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -132,7 +162,7 @@ const TypewriterText = () => {
 
   return (
     <span className="relative inline-block">
-      <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
+      <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-200 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
         {currentText}
       </span>
       <span 

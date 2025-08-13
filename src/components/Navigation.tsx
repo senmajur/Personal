@@ -90,7 +90,7 @@ const Navigation = (): React.JSX.Element => {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`
-                  relative px-2 sm:px-5 py-1.5 sm:py-2.5 rounded-full font-medium transition-all duration-300 text-xs sm:text-base
+                  group relative px-2 sm:px-5 py-1.5 sm:py-2.5 rounded-full font-medium transition-all duration-300 text-xs sm:text-base
                   ultra-small:px-1.5 ultra-small:py-1 ultra-small:text-[10px] very-small:px-2 very-small:py-1.5 very-small:text-[11px]
                   ${activeSection === item.id 
                     ? 'text-white bg-white/10 shadow-lg' 
@@ -98,7 +98,9 @@ const Navigation = (): React.JSX.Element => {
                   }
                 `}
               >
-                <span className="relative z-10">{item.label}</span>
+                <span className="relative z-10 text-inherit group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-pink-400 group-hover:to-cyan-400 group-hover:bg-clip-text group-hover:text-transparent group-hover:animate-gradient-shift group-hover:bg-[length:200%_200%] group-hover:[text-shadow:0_0_8px_rgba(139,92,246,0.8),0_0_16px_rgba(236,72,153,0.7),0_0_24px_rgba(34,211,238,0.6)] transition-all duration-300">
+                  {item.label}
+                </span>
                 {activeSection === item.id && (
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 animate-glow-pulse"></div>
                 )}
@@ -111,7 +113,7 @@ const Navigation = (): React.JSX.Element => {
                     return (
                       <div
                         key={i}
-                  className="absolute w-[0.375rem] h-[0.375rem] sm:w-[0.25rem] sm:h-[0.25rem] bg-white/40 rounded-full animate-particle-float"
+                        className="absolute w-[0.375rem] h-[0.375rem] sm:w-[0.25rem] sm:h-[0.25rem] bg-white/40 rounded-full animate-particle-float"
                         style={{
                           left: `${left}%`,
                           top: `${top}%`,
