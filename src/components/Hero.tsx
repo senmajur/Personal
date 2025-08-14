@@ -14,7 +14,7 @@ const Hero = (): React.JSX.Element => {
       <div className="text-center max-w-4xl mx-auto relative z-20">
         <div className="animate-fade-in-up">
           <h6 className="text-2xl sm:text-3xl text-gray-400 mb-6 tracking-wider opacity-0 animate-fade-in-delayed-1">
-            Hi, my name is
+            Hello, I&apos;m
           </h6>
         </div>
         
