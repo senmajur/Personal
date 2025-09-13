@@ -25,7 +25,8 @@ const Experience = (): React.JSX.Element => {
       ],
       technologies: ['Python', 'SQL', 'matplotlib', 'SQLite'],
       gradient: 'from-blue-500/20 via-purple-500/20 to-pink-500/20',
-      icon: '🛠️'
+      icon: '🛠️',
+      url: 'https://ipexna.com/'
     },
     {
       id: '02',
@@ -57,7 +58,8 @@ const Experience = (): React.JSX.Element => {
       ],
       technologies: ['AutoCAD'],
       gradient: 'from-orange-500/20 via-red-500/20 to-pink-500/20',
-      icon: '🧩'
+  icon: '🧩',
+  url: 'https://ipexna.com/'
     },
     {
       id: '04',
@@ -157,7 +159,8 @@ const Experience = (): React.JSX.Element => {
       description: e.description,
       achievements: e.achievements,
       technologies: e.technologies,
-      icon: e.icon
+  icon: e.icon,
+  url: (e as any).url
     }))
 
   return (

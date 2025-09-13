@@ -14,6 +14,7 @@ export interface TimelineItemData {
   technologies?: string[];
   features?: string[];
   icon?: string;
+  url?: string; // optional external link for company / project
 }
 
 interface TimelineSectionProps {
@@ -103,7 +104,22 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ id, heading, subheadi
                       group-hover:shadow-[0_8px_50px_-12px_rgba(168,85,247,0.45)]
                       ${isLeft ? 'md:animate-slide-in-left' : 'md:animate-slide-in-right'}`}> 
                       <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-[3px] bg-gradient-to-r from-purple-400 via-pink-500 to-fuchsia-400 rounded-full shadow-[0_0_12px_2px_rgba(192,132,252,0.55)]" />
-                      <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 leading-snug">{companyOrTitle}</h3>
+                      {item.url ? (
+                        <h3 className="text-2xl sm:text-3xl font-bold mb-3 leading-snug">
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/link inline-flex items-center gap-2 text-white hover:text-transparent hover:bg-gradient-to-r hover:from-purple-300 hover:via-pink-300 hover:to-cyan-200 hover:bg-clip-text transition-colors duration-300"
+                            aria-label={`${companyOrTitle} (opens in new tab)`}
+                          >
+                            <span>{companyOrTitle}</span>
+                            <span className="relative -mr-1 inline-flex h-5 w-5 items-center justify-center rounded-md bg-white/5 text-[11px] text-purple-200 ring-1 ring-white/10 group-hover/link:bg-white/10 group-hover/link:text-pink-200 transition-colors">↗</span>
+                          </a>
+                        </h3>
+                      ) : (
+                        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 leading-snug">{companyOrTitle}</h3>
+                      )}
                       {role && (
                         <h4 className={`text-xs sm:text-sm tracking-[0.55em] font-semibold text-purple-300 mb-6 uppercase ${isLeft ? 'md:text-right' : 'md:text-left'}`}>{role}</h4>
                       )}
