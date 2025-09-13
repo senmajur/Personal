@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import GlassBubble from './GlassBubble'
 
 const Contact = (): React.JSX.Element => {
   const sectionRef = useRef<HTMLElement>(null)
@@ -18,7 +19,7 @@ const Contact = (): React.JSX.Element => {
     {
       name: 'GitHub',
       icon: '/github.svg',
-      url: 'https://github.com/Rian-Sen',
+  url: 'https://github.com/senmajur',
       gradient: 'from-purple-400 via-pink-400 to-cyan-200',
       description: 'View my code'
     },
@@ -71,7 +72,7 @@ const Contact = (): React.JSX.Element => {
         </div>
 
         {/* Social Links with Liquid Glass */}
-        <div className={`flex justify-center gap-8 transition-all duration-600 delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+  <div className={`flex justify-center gap-10 transition-all duration-600 delay-150 flex-wrap ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           {socialLinks.map((link, index) => (
             <SocialLink
               key={link.name}
@@ -85,28 +86,23 @@ const Contact = (): React.JSX.Element => {
 
         {/* Liquid Glass CTA Card */}
         <div className={`mt-16 transition-all duration-600 delay-250 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="relative p-8 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 hover:border-white/20 transition-all duration-500 hover:bg-white/8 group max-w-2xl mx-auto">
-            
-            {/* Animated Gradient Background */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-xy"></div>
-            
-            {/* Content */}
-            <div className="relative z-10">
-              <h4 className="text-2xl font-bold text-white mb-4">Let&apos;s Build Something Amazing Together</h4>
-              <p className="text-gray-300 mb-6">
-                Ready to turn innovative ideas into reality? I bring passion, creativity, and cutting-edge technical skills to every project.
-              </p>
-              
-              <button className="group/cta relative px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.4)] overflow-hidden">
-                <span className="relative z-10">Start a Conversation</span>
-                
-                {/* Animated shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover/cta:opacity-100 transition-opacity duration-500 animate-border-flow"></div>
-              </button>
+          <div className="relative max-w-3xl mx-auto">
+            <div className="group relative p-10 sm:p-12 rounded-[2.2rem] overflow-hidden bg-white/5 backdrop-blur-3xl shadow-[0_8px_40px_-8px_rgba(0,0,0,0.4)] transition-all duration-700 hover:shadow-[0_16px_64px_-10px_rgba(139,92,246,0.55)]">
+              <div className="absolute inset-0 rounded-[2.2rem] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-cyan-500/10 opacity-60 animate-gradient-shift" />
+              <div className="absolute inset-0 rounded-[2.2rem] bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.25),transparent_60%)] opacity-40 group-hover:opacity-70 transition-opacity duration-700" />
+              <div className="absolute -inset-[2px] rounded-[2.4rem] bg-gradient-to-r from-purple-500/30 via-pink-500/30 to-cyan-500/30 opacity-0 group-hover:opacity-40 blur-xl transition-opacity duration-700" />
+              <div className="relative z-10">
+                <h4 className="text-2xl sm:text-3xl font-bold text-white mb-5 tracking-tight">Let&apos;s Build Something Amazing Together</h4>
+                <p className="text-gray-300/90 mb-8 leading-relaxed max-w-2xl mx-auto">
+                  Ready to turn innovative ideas into reality? I bring passion, creativity, and cutting-edge technical skills to every project.
+                </p>
+                <GlassBubble asButton className="!px-9 !py-4 text-base font-semibold relative">
+                  <span className="relative z-10">Start a Conversation</span>
+                  <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/40 via-pink-500/40 to-cyan-500/40 opacity-50 mix-blend-overlay" />
+                </GlassBubble>
+              </div>
+              <div className="absolute inset-0 rounded-[2.2rem] bg-gradient-to-t from-transparent via-white/5 to-white/10 opacity-60" />
             </div>
-
-            {/* Liquid Glass Reflection */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-transparent via-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
         </div>
       </div>

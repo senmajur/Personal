@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 const Hero = (): React.JSX.Element => {
   return (
     <section 
-      className="relative z-10 min-h-screen flex items-center justify-center px-6 overflow-hidden"
+      className="relative z-10 min-h-screen flex items-center justify-center px-6 overflow-hidden pt-16"
     >
       {/* Floating Particles */}
       <FloatingParticles />
@@ -13,28 +13,31 @@ const Hero = (): React.JSX.Element => {
       {/* Main Content */}
       <div className="text-center max-w-4xl mx-auto relative z-20">
         <div className="animate-fade-in-up">
-          <h6 className="text-2xl sm:text-3xl text-gray-400 mb-6 tracking-wider opacity-0 animate-fade-in-delayed-1">
+          <h6 className="text-2xl sm:text-3xl text-gray-400 mb-4 tracking-wider opacity-0 animate-fade-in-delayed-1">
             Hello, I&apos;m
           </h6>
         </div>
         
         <div className="animate-fade-in-up-delayed">
-          <h1 className="text-7xl sm:text-7xl md:text-9xl font-bold mb-8 opacity-0 animate-text-reveal relative">
+          <h1 className="text-7xl sm:text-7xl md:text-9xl font-bold mb-4 opacity-0 animate-text-reveal relative">
             <span className="block animate-slide-up-1">Rian</span>
             <span className="block animate-slide-up-2">Sen</span>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-3xl -z-10 animate-glow-pulse"></div>
           </h1>
+          <div className="mt-8 mb-6 animate-fade-in-delayed-2">
+            <span className="text-xl sm:text-2xl text-gray-400 tracking-wider">Computer Engineering Student</span>
+          </div>
         </div>
         
-        <div className="animate-fade-in-up-delayed-2">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl text-gray-300 mb-10 opacity-0 animate-fade-in-delayed-2">
+  <div className="animate-fade-in-up-delayed-2 mt-12">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl text-gray-300 mb-4 opacity-0 animate-fade-in-delayed-2">
             Engineering applications that{' '}
             <TypewriterText />
           </h3>
         </div>
 
         {/* Animated CTA Button */}
-        <div className="mt-16 opacity-0 animate-fade-in-delayed-3 flex flex-col items-center gap-6">
+  <div className="mt-16 opacity-0 animate-fade-in-delayed-3 flex flex-col items-center gap-6">
           <button className="group relative px-8 sm:px-10 py-4 sm:py-5 rounded-full backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] text-white text-lg sm:text-lg font-medium transition-all duration-500 hover:scale-105 hover:shadow-[0_12px_40px_rgba(139,92,246,0.15)] bg-white/[0.05] hover:bg-white/[0.08]">
             <span className="relative z-10 transition-all duration-300">
               <span className="text-white group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-pink-400 group-hover:to-cyan-200 group-hover:bg-clip-text group-hover:text-transparent group-hover:animate-gradient-shift group-hover:bg-[length:200%_200%]">Explore My Work</span>
@@ -52,7 +55,7 @@ const Hero = (): React.JSX.Element => {
           </button>
           <div className="flex items-center justify-center gap-4">
             {/* GitHub */}
-            <a href="https://github.com/Rian-Sen" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="group relative w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-105">
+            <a href="https://github.com/senmajur" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="group relative w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-105">
               <div className="w-6 h-6 relative flex items-center justify-center">
                 <img src="/github.svg" alt="GitHub" className="w-6 h-6 absolute inset-0 z-10 transition-all duration-300 group-hover:opacity-0" style={{filter: 'brightness(0) saturate(100%) invert(100%)'}} />
                 {/* Neon Glow Layer */}

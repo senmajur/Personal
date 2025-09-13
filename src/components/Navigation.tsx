@@ -34,7 +34,7 @@ const Navigation = (): React.JSX.Element => {
       setScrolled(scrollPosition > 50)
 
       // Update active section based on scroll position
-      const sections = ['skills', 'experience', 'projects', 'contact']
+  const sections = ['skills', 'experience', 'activities', 'projects', 'contact']
       const current = sections.find(section => {
         const element = document.getElementById(section)
         if (element) {
@@ -57,6 +57,7 @@ const Navigation = (): React.JSX.Element => {
   const navItems = [
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
+    { id: 'activities', label: 'Activities' },
     { id: 'projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' }
   ]
