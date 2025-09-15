@@ -11,33 +11,14 @@ const Projects = (): React.JSX.Element => {
   const projects = [
     {
       id: 1,
-      title: 'GreenGuide - Object Identifying Machine Learning Model',
-      subtitle: '',
-      description: 'Created and trained an ML model in Python that uses a device camera to identify and sort objects into various categories based on the object’s material with 97% accuracy, sorting them into compost, garbage, or recycling.',
-      longDescription: 'Trained and fine-tuned a MobileNetV2 model to classify objects in real-time using OpenCV, Keras, Tensorflow, and Kaggle',
-      technologies: ['Python', 'MobileNetV2', 'OpenCV', 'Keras', 'Tensorflow', 'Kaggle'],
-      features: [
-        'Created and trained an ML model in Python that uses a device camera to identify and sort objects into various categories based on the object’s material with 97% accuracy, sorting them into compost, garbage, or recycling.',
-        'Trained and fine-tuned a MobileNetV2 model to classify objects in real-time using OpenCV, Keras, Tensorflow, and Kaggle'
-      ],
-      metrics: {} as { [key: string]: string },
-      status: '',
-      category: 'Projects',
-      gradient: 'from-green-500/20 via-emerald-500/20 to-teal-500/20',
-      icon: '🌱',
-      demoUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      id: 2,
       title: 'PalmPilot - Computer Vision Hand Gesture Controlled Car',
       subtitle: '',
-      description: 'Designed and implemented a computer vision system in Python using a laptop camera and OpenCV, enabling object detection for a Bluetooth-controlled car.',
-      longDescription: 'Utilized MediaPipe for real-time finger recognition and communicated gestures to Arduino via Serial library in C++ for controls.',
-      technologies: ['Python', 'OpenCV', 'MediaPipe', 'Arduino', 'Serial', 'C++'],
+      description: 'Implemented a real-time gesture recognition pipeline in C++ & Python with OpenCV and MediaPipe to control an Arduino Uno based, Bluetooth enabled car with custom 3D-printed components, applying ML object detection in an embedded system.',
+      longDescription: 'PalmPilot is a computer vision–powered Arduino car that replaces a physical remote with intuitive hand gesture control. The project integrates AI-based gesture recognition, real-time software processing, and embedded motor control, showcasing the intersection of computer vision, human–computer interaction, and hardware–software integration.',
+      technologies: ['C++', 'Python', 'OpenCV', 'MediaPipe', 'Arduino', 'L298N', '3D Printing', 'Bluetooth'],
       features: [
-        'Designed and implemented a computer vision system in Python using a laptop camera and OpenCV, enabling object detection for a Bluetooth-controlled car.',
-        'Utilized MediaPipe for real-time finger recognition and communicated gestures to Arduino via Serial library in C++ for controls.'
+        'Implemented a real-time gesture recognition pipeline in C++ & Python with OpenCV and MediaPipe to control an Arduino Uno based, Bluetooth enabled car with custom 3D-printed components, applying ML object detection in an embedded system.',
+        'Programmed Arduino firmware to receive serial input and control DC motors via an L298N driver, enabling gesture navigation.'
       ],
       metrics: {} as { [key: string]: string },
       status: '',
@@ -45,17 +26,18 @@ const Projects = (): React.JSX.Element => {
       gradient: 'from-indigo-500/20 via-purple-500/20 to-pink-500/20',
       icon: '✋',
       demoUrl: '#',
-      githubUrl: '#'
+      githubUrl: 'https://github.com/senmajur/PalmPilot'
     },
     {
-      id: 3,
+      id: 2,
       title: 'Jittr - ADHD Diagnosing Regression Model',
       subtitle: '',
-      description: 'Jittr - ADHD Diagnosing Regression Model',
-      longDescription: 'Jittr - ADHD Diagnosing Regression Model',
-      technologies: ['Python'],
+      description: 'Developed a Chrome extension training a logistic regression model on ADHD research datasets to detect behavioral patterns.',
+      longDescription: 'Tracked reading time, path velocity, and mouse acceleration across domains to generate real-time probability scores for ADHD-like signals.',
+      technologies: ['Chrome Extension', 'Logistic Regression', 'JavaScript', 'Machine Learning', 'ADHD Research'],
       features: [
-        'Jittr - ADHD Diagnosing Regression Model'
+        'Developed a Chrome extension training a logistic regression model on ADHD research datasets to detect behavioral patterns.',
+        'Tracked reading time, path velocity, and mouse acceleration across domains to generate real-time probability scores for ADHD-like signals.'
       ],
       metrics: {} as { [key: string]: string },
       status: '',
@@ -63,7 +45,26 @@ const Projects = (): React.JSX.Element => {
       gradient: 'from-purple-500/20 via-pink-500/20 to-rose-500/20',
       icon: '🧠',
       demoUrl: '#',
-      githubUrl: '#'
+      githubUrl: 'https://github.com/senmajur/Jittr'
+    },
+    {
+      id: 3,
+      title: 'GreenGuide - Object Identifying Machine Learning Model',
+      subtitle: '',
+      description: 'Trained and fine-tuned a MobileNetV2 model to classify objects in real-time with 97% accuracy using Kaggle, Python, OpenCV, etc.',
+      longDescription: 'Created and trained an ML model in Python that uses a device camera to identify and sort objects into various categories based on the object\'s material with 97% accuracy, sorting them into compost, garbage, or recycling.',
+      technologies: ['Python', 'MobileNetV2', 'OpenCV', 'Keras', 'Tensorflow', 'Kaggle'],
+      features: [
+        'Trained and fine-tuned a MobileNetV2 model to classify objects in real-time with 97% accuracy using Kaggle, Python, OpenCV, etc.',
+        'Created and trained an ML model in Python that uses a device camera to identify and sort objects into various categories based on the object\'s material with 97% accuracy, sorting them into compost, garbage, or recycling.'
+      ],
+      metrics: {} as { [key: string]: string },
+      status: '',
+      category: 'Projects',
+      gradient: 'from-green-500/20 via-emerald-500/20 to-teal-500/20',
+      icon: '🌱',
+      demoUrl: '#',
+      githubUrl: 'https://github.com/senmajur/GreenGuide'
     }
   ]
 
@@ -93,7 +94,8 @@ const Projects = (): React.JSX.Element => {
     longDescription: p.longDescription,
     achievements: p.features, // reuse features as achievements list for expanded mode
     technologies: p.technologies,
-    icon: p.icon
+    icon: p.icon,
+    url: p.githubUrl !== '#' ? p.githubUrl : undefined
   }))
 
   return (

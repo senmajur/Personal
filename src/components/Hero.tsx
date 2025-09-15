@@ -3,6 +3,16 @@
 import React, { useEffect, useState } from 'react'
 
 const Hero = (): React.JSX.Element => {
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects')
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
+
   return (
     <section 
       className="relative z-10 min-h-screen flex items-center justify-center px-6 overflow-hidden pt-16"
@@ -38,7 +48,10 @@ const Hero = (): React.JSX.Element => {
 
         {/* Animated CTA Button */}
   <div className="mt-16 opacity-0 animate-fade-in-delayed-3 flex flex-col items-center gap-6">
-          <button className="group relative px-8 sm:px-10 py-4 sm:py-5 rounded-full backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] text-white text-lg sm:text-lg font-medium transition-all duration-500 hover:scale-105 hover:shadow-[0_12px_40px_rgba(139,92,246,0.15)] bg-white/[0.05] hover:bg-white/[0.08]">
+          <button 
+            onClick={scrollToProjects}
+            className="group relative px-8 sm:px-10 py-4 sm:py-5 rounded-full backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] text-white text-lg sm:text-lg font-medium transition-all duration-500 hover:scale-105 hover:shadow-[0_12px_40px_rgba(139,92,246,0.15)] bg-white/[0.05] hover:bg-white/[0.08]"
+          >
             <span className="relative z-10 transition-all duration-300">
               <span className="text-white group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-pink-400 group-hover:to-cyan-200 group-hover:bg-clip-text group-hover:text-transparent group-hover:animate-gradient-shift group-hover:bg-[length:200%_200%]">Explore My Work</span>
               {/* Text-specific glow */}

@@ -42,7 +42,8 @@ const Experience = (): React.JSX.Element => {
       ],
       technologies: [],
       gradient: 'from-green-500/20 via-teal-500/20 to-blue-500/20',
-      icon: '📈'
+      icon: '📈',
+      url: 'https://www.cogeco.ca/en'
     },
     {
       id: '03',
@@ -76,7 +77,9 @@ const Experience = (): React.JSX.Element => {
       ],
       technologies: ['HTML', 'CSS', 'JavaScript', 'React', 'Bootstrap', 'Tailwind', 'Git', 'GitHub'],
       gradient: 'from-purple-500/20 via-indigo-500/20 to-blue-500/20',
-      icon: '�'
+  // icon verified (5n2)
+  icon: '💻',
+      url: 'https://5n2.ca/'
     },
     {
       id: '05',
@@ -93,7 +96,8 @@ const Experience = (): React.JSX.Element => {
       ],
       technologies: [],
       gradient: 'from-fuchsia-500/20 via-purple-500/20 to-indigo-500/20',
-      icon: '🎯'
+      icon: '🎯',
+      url: 'https://macengsociety.ca/first-year-council'
     },
     {
       id: '06',
@@ -125,7 +129,8 @@ const Experience = (): React.JSX.Element => {
       ],
       technologies: [],
       gradient: 'from-sky-500/20 via-blue-500/20 to-indigo-500/20',
-      icon: '�'
+  // icon verified (Lifeguard)
+  icon: '🛟'
     }
   ]
 
