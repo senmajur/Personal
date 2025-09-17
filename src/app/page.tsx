@@ -55,10 +55,10 @@ export default function Home() {
           <Skills />
         </div>
         
-  {/* Swapped ordering: Experience (professional) -> Activities (extracurricular) -> Projects */}
+  {/* Ordering updated: Experience -> Projects (Featured) -> Activities (Extracurricular) */}
   <Experience />
-  <Activities />
   <Projects />
+  <Activities />
         <Contact />
       </div>
     </main>
