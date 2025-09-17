@@ -142,6 +142,8 @@ const data: RawExperience[] = [
   }
 ]
 
+export const experienceData = data
+
 const Experience = (): React.JSX.Element => {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [hasIntersected, setHasIntersected] = useState(false)
@@ -158,7 +160,7 @@ const Experience = (): React.JSX.Element => {
   }, [])
 
   const professional = data.filter(d => ['IPEX', 'Cogeco', '5n2'].includes(d.company))
-  const extracurricular = data.filter(d => ['McMaster Engineering Society', 'TDSB Community Services', 'Toronto Pan Am Centre'].includes(d.company))
+  // Extracurricular activities moved to separate Activities component
 
   const toItems = (arr: RawExperience[]): TimelineItemData[] =>
     arr.map((d, idx) => ({
@@ -180,12 +182,6 @@ const Experience = (): React.JSX.Element => {
         heading="Professional Experiences"
         subheading="Engineering, software, and technical impact roles."
         items={toItems(professional)}
-      />
-      <TimelineSection
-        id="activities"
-        heading="Extracurricular Activities"
-        subheading="Leadership, teaching, and community engagement roles."
-        items={toItems(extracurricular)}
       />
     </div>
   )

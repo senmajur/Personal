@@ -3,6 +3,7 @@ import Hero from '@/components/Hero'
 import Skills from '@/components/Skills'
 import Experience from '@/components/Experience'
 import Projects from '@/components/Projects'
+import Activities from '@/components/Activities'
 import Contact from '@/components/Contact'
 import StarBackground from '@/components/StarBackground'
 
@@ -54,8 +55,10 @@ export default function Home() {
           <Skills />
         </div>
         
-        <Experience />
-        <Projects />
+  {/* Swapped ordering: Experience (professional) -> Activities (extracurricular) -> Projects */}
+  <Experience />
+  <Activities />
+  <Projects />
         <Contact />
       </div>
     </main>
