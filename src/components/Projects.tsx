@@ -32,12 +32,12 @@ const Projects = (): React.JSX.Element => {
       id: 2,
       title: 'Jittr - ADHD Diagnosing Regression Model',
       subtitle: '',
-      description: 'Developed a Chrome extension training a logistic regression model on ADHD research datasets to detect behavioral patterns.',
-      longDescription: 'Tracked reading time, path velocity, and mouse acceleration across domains to generate real-time probability scores for ADHD-like signals.',
+      description: 'Chrome extension that trains a logistic regression model on ADHD research datasets to flag behavioral signal patterns.',
+      longDescription: 'Captures reading time, pointer path velocity, and mouse acceleration to produce live probability scores indicating ADHD-like interaction signals across domains.',
       technologies: ['Chrome Extension', 'Logistic Regression', 'JavaScript', 'Machine Learning', 'ADHD Research'],
       features: [
-        'Developed a Chrome extension training a logistic regression model on ADHD research datasets to detect behavioral patterns.',
-        'Tracked reading time, path velocity, and mouse acceleration across domains to generate real-time probability scores for ADHD-like signals.'
+        'Implements logistic regression inference in-browser using captured interaction metrics.',
+        'Generates real-time probability scores from aggregated time-on-task and movement features.'
       ],
       metrics: {} as { [key: string]: string },
       status: '',
@@ -51,12 +51,12 @@ const Projects = (): React.JSX.Element => {
       id: 3,
       title: 'GreenGuide - Object Identifying Machine Learning Model',
       subtitle: '',
-      description: 'Trained and fine-tuned a MobileNetV2 model to classify objects in real-time with 97% accuracy using Kaggle, Python, OpenCV, etc.',
-      longDescription: 'Created and trained an ML model in Python that uses a device camera to identify and sort objects into various categories based on the object\'s material with 97% accuracy, sorting them into compost, garbage, or recycling.',
+      description: 'MobileNetV2-based vision model that classifies household waste streams (compost, recycling, garbage) at 97% accuracy.',
+      longDescription: 'Real-time Python/OpenCV pipeline fine-tuned on curated Kaggle + custom images to identify object material and route to correct disposal category with 97% measured validation accuracy.',
       technologies: ['Python', 'MobileNetV2', 'OpenCV', 'Keras', 'Tensorflow', 'Kaggle'],
       features: [
-        'Trained and fine-tuned a MobileNetV2 model to classify objects in real-time with 97% accuracy using Kaggle, Python, OpenCV, etc.',
-        'Created and trained an ML model in Python that uses a device camera to identify and sort objects into various categories based on the object\'s material with 97% accuracy, sorting them into compost, garbage, or recycling.'
+        'Fine-tuned MobileNetV2 with transfer learning for multi-class waste categorization.',
+        'Processes live camera frames via OpenCV to classify and advise disposal category.'
       ],
       metrics: {} as { [key: string]: string },
       status: '',
@@ -65,6 +65,25 @@ const Projects = (): React.JSX.Element => {
       icon: '🌱',
       demoUrl: '#',
       githubUrl: 'https://github.com/senmajur/GreenGuide'
+    },
+    {
+      id: 4,
+      title: 'Personal Portfolio Website',
+      subtitle: '',
+      description: 'Responsive developer portfolio built with TypeScript, React, Next.js, and Tailwind CSS, deployed on Vercel.',
+      longDescription: 'Used JavaScript, TypeScript, React, NextJS, Node.js, and TailwindCSS to create a dynamic website and deploy it on Vercel; showcases projects, experience timelines, smooth animations, and optimized asset delivery.',
+      technologies: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Node.js', 'Vercel'],
+      features: [
+        'Implements accessible, mobile-first responsive design with Tailwind utility patterns.',
+        'Leverages Next.js routing and server optimizations for fast initial paint and SEO-friendly metadata.'
+      ],
+      metrics: {} as { [key: string]: string },
+      status: '',
+      category: 'Projects',
+      gradient: 'from-cyan-500/20 via-sky-500/20 to-blue-500/20',
+      icon: '🗂️',
+      demoUrl: '#',
+      githubUrl: 'https://github.com/senmajur/Personal'
     }
   ]
 
