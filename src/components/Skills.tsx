@@ -10,7 +10,7 @@ const Skills = (): React.JSX.Element => {
   const skillCategories: Array<{ title: string; items: string[] }> = [
     {
       title: 'Programming Languages',
-      items: ['C', 'C++', 'Python', 'HTML/CSS', 'JavaScript', 'TypeScript', 'SQL']
+      items: ['C', 'C++', 'Python', 'HTML/CSS', 'JavaScript', 'TypeScript', 'SQL', 'MatLab', 'Simulink']
     },
     {
       title: 'Libraries/Frameworks',
@@ -18,7 +18,7 @@ const Skills = (): React.JSX.Element => {
     },
     {
       title: 'Tools/Design',
-      items: ['Git', 'GitHub', 'Arduino Uno', 'AutoCAD', 'Solidworks', 'Prusaslicer', 'Microsoft Office/Excel', 'MobileNetV2']
+      items: ['Git', 'GitHub', 'GitLab', 'Arduino', 'CMake', 'AutoCAD', 'Solidworks', 'Prusaslicer', 'Microsoft Office/Excel', 'MobileNetV2']
     }
   ]
 
