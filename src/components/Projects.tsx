@@ -11,6 +11,27 @@ const Projects = (): React.JSX.Element => {
   const projects = [
     {
       id: 1,
+      title: 'MacFind - McMaster Lost & Found MVP',
+      subtitle: 'McMaster Lost & Found Marketplace',
+      description: 'A McMaster-themed lost & found marketplace connecting students with lost items via AI-powered search and secure communication.',
+      longDescription: 'MacFind is a dedicated lost & found platform for the McMaster University community. It features a robust marketplace for lost items with AI-enhanced metadata using Gemini Vision, a dashboard for posting found items, and a secure chat system facilitating safe meetups. The application enforces verified student access via Supabase Auth and ensures privacy with blurred item previews.',
+      technologies: ['React', 'TypeScript', 'Vite', 'Supabase', 'Gemini AI', 'PostgreSQL'],
+      features: [
+        'Developed a lost & found marketplace with AI-powered image analysis using Gemini to automatically categorize and tag items.',
+        'Implemented secure authentication with Supabase, restricting access to @mcmaster.ca email addresses.',
+        'Created a real-time chat system with safe meetup suggestions to facilitate the return of lost items.',
+        'Designed a responsive UI with a McMaster-themed maroon/gold palette and blurred image previews for privacy.'
+      ],
+      metrics: {} as { [key: string]: string },
+      status: 'MVP',
+      category: 'Projects',
+      gradient: 'from-red-800/20 via-orange-700/20 to-zinc-900/20',
+      icon: '🔍',
+      demoUrl: 'https://mac-find-two.vercel.app/',
+      githubUrl: 'https://github.com/senmajur/MacFind'
+    },
+    {
+      id: 2,
       title: 'PalmPilot - Computer Vision Hand Gesture Controlled Car',
       subtitle: '',
       description: 'Implemented a real-time gesture recognition pipeline in C++ & Python with OpenCV and MediaPipe to control an Arduino Uno based, Bluetooth enabled car with custom 3D-printed components, applying ML object detection in an embedded system.',
@@ -29,7 +50,7 @@ const Projects = (): React.JSX.Element => {
       githubUrl: 'https://github.com/senmajur/PalmPilot'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Jittr - ADHD Diagnosing Regression Model',
       subtitle: '',
       description: 'Chrome extension that trains a logistic regression model on ADHD research datasets to flag behavioral signal patterns.',
@@ -48,7 +69,7 @@ const Projects = (): React.JSX.Element => {
       githubUrl: 'https://github.com/senmajur/Jittr'
     },
     {
-      id: 3,
+      id: 4,
       title: 'GreenGuide - Object Identifying Machine Learning Model',
       subtitle: '',
       description: 'MobileNetV2-based vision model that classifies household waste streams (compost, recycling, garbage) at 97% accuracy.',
@@ -67,7 +88,7 @@ const Projects = (): React.JSX.Element => {
       githubUrl: 'https://github.com/senmajur/GreenGuide'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Personal Portfolio Website',
       subtitle: '',
       description: 'Responsive developer portfolio built with TypeScript, React, Next.js, and Tailwind CSS, deployed on Vercel.',
@@ -114,7 +135,8 @@ const Projects = (): React.JSX.Element => {
     achievements: p.features, // reuse features as achievements list for expanded mode
     technologies: p.technologies,
     icon: p.icon,
-    url: p.githubUrl !== '#' ? p.githubUrl : undefined
+    url: p.githubUrl !== '#' ? p.githubUrl : undefined,
+    demoUrl: p.demoUrl !== '#' ? p.demoUrl : undefined
   }))
 
   return (

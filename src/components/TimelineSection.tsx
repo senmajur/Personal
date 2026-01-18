@@ -15,6 +15,7 @@ export interface TimelineItemData {
   features?: string[];
   icon?: string;
   url?: string; // optional external link for company / project
+  demoUrl?: string; // optional live demo link
 }
 
 interface TimelineSectionProps {
@@ -161,6 +162,21 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ id, heading, subheadi
                               )}
                             </span>
                           </a>
+                          {item.demoUrl && (
+                            <a
+                              href={item.demoUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="ml-3 inline-flex items-center justify-center -translate-y-[2px] h-8 w-8 rounded-full bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-cyan-400/20 ring-1 ring-white/15 text-purple-200 hover:from-purple-500/35 hover:via-pink-500/35 hover:to-cyan-400/35 hover:text-pink-200 hover:scale-110 hover:ring-2 hover:ring-purple-400/30 transition-all duration-300"
+                              title="Live Demo"
+                            >
+                              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                              </svg>
+                            </a>
+                          )}
                         </h3>
                       ) : (
                         <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 leading-snug">{companyOrTitle}</h3>
