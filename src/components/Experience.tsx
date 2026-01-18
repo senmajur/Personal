@@ -56,23 +56,6 @@ const data: RawExperience[] = [
     url: 'https://www.cogeco.ca/en'
   },
   {
-    id: '03',
-    year: 'May 2024 – Aug 2024',
-    company: 'IPEX',
-    position: 'Design Engineering Intern',
-    duration: 'May 2024 – Aug 2024',
-    type: 'Internship',
-    description: '',
-    achievements: [
-      'Used AutoCAD to model and iterate on production layouts for efficiency insights.',
-      'Automated CAD scripting tools to model layouts and support process optimization.'
-    ],
-    technologies: ['AutoCAD'],
-    gradient: 'from-orange-500/20 via-red-500/20 to-pink-500/20',
-    icon: '🧩',
-    url: 'https://ipexna.com/'
-  },
-  {
     id: '04',
     year: 'Jun 2023 – Sep 2023',
     company: '5n2',
@@ -160,7 +143,6 @@ const Experience = (): React.JSX.Element => {
   }, [])
 
   const professional = data.filter(d => ['IPEX', 'Cogeco', '5n2'].includes(d.company))
-  // Extracurricular activities moved to separate Activities component
 
   const toItems = (arr: RawExperience[]): TimelineItemData[] =>
     arr.map((d, idx) => ({
